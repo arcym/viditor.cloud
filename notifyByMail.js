@@ -1,12 +1,14 @@
 
+// Version 15.04#01
 // Sun Feb 22 17:44:26 2015 | 1424645066
-// module to wrap node-mailer in an accessable function to code.
+// Module to wrap node-mailer in an accessable function to code,
+// that accepts and decrypts passwords from mail.keys.js file
 
-var keys   = require('./mailKeys.js');
-// mailKeys.js follows this structure
+var keys   = require('./mail.keys.js');
+// mail.keys.js follows this structure
 // exports.mailAddress   = '[INSERT emailaddress]';
-// exports.cryptPassword = '[INSERT a password for cryptkey]';
-// exports.hashValue     = '[INSERT an encrypted password value]';
+// exports.cryptPassword = '[INSERT a password for encryption key]';
+// exports.hashValue     = '[INSERT encripted password value]';
 
 var crypto = require('crypto'),
 algorithm = 'aes-256-ctr',
@@ -22,27 +24,26 @@ function decrypt(text)
 
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport(
-{
-    service: 'gmail',
+var transporter = nodemailer.createTransport({
+    service: 'gmail',                  //EMAIL SERVICE
     auth:
     {
-        user: keys.mailAddress,       // Where privacy isn't an issue these can be let go.
+        user: keys.mailAddress,       
         pass: decrypt(keys.hashValue),
     }
 });
 
 module.exports =
-{
-    notify: function notifyByMail(title, message)
     {
+    notify: function notifyByMail(title,message)
+        {
         transporter.sendMail(
             {
-                from: keys.mailAddress,
-                to:   keys.mailAddress,
-                subject: title,
-                text: message
-            });
+            from: keys.mailAddress,
+            to:   keys.mailAddress,
+            subject: title,
+            text: message
+        });
         return;
     }
 };
