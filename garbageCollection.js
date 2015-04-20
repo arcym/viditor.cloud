@@ -13,7 +13,7 @@ var path = require("path");
 var mongoose = require("mongoose");
 
 var current = Date.now();
-var expirationDate = current - (3*24*60*60*1000); // days*hours*minutes*seconds*miliseconds
+var expirationDate = current - (3*24*60*60*1000); // days*hours*minutes*seconds*milliseconds
 
 var ASSETS_DIRECTORY = __dirname + "/assets/";
 
