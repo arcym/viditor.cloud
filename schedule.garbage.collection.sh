@@ -47,6 +47,9 @@ crontab -l > $FILE
 #    min hour mday month wday command  
 echo " 0 0 * * * $NODE ${DIR}/garbage.collection.js" >> $FILE
 # To change the garbage collection time alter the line above.
+# If the script has been run before this will only add additional 
+# executions. This will not change existing jobs which have been
+# previously entered.
 # The default value is '0 0 * * *' for 0:00 or midnight every day.
 # '*' represents all values or every interval being valid.
 # 1st number is minutes, 0-59 and '*' are valid values
