@@ -39,7 +39,7 @@ done
 # NON-TEMPLATE / SCRIPT BEGINS
 
 FILE="/tmp/crontab.$$";
-NODE=$(which node);
+NODE=$(which nodejs);
 DIR=$(pwd);
 crontab -l > $FILE
 
