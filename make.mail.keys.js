@@ -11,7 +11,7 @@ var fs = require('fs');
 var inquirer = require('inquirer');
 var crypto = require('crypto'),
 algorithm = 'aes-256-ctr';
-var notifier = require("./notifyByMail.js");
+var notifier = require("./mail.notifier.process.js");
 
 function encrypt(text,encryptPassword){
     var cipher = crypto.createCipher(algorithm,encryptPassword)
