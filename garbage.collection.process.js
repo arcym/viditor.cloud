@@ -20,7 +20,7 @@ var ASSETS_DIRECTORY = __dirname + "/assets/";
 require("./source/mongoose.connection");
 require("./source/mongoose.schemas");
 
-var notifier = require("./notifyByMail.js");
+var notifier = require("./mail.notifier.process.js");
 var title = 'garbageCollection.js';
 var message = 'garbageCollection has run';
 notifier.notify(title,message);
