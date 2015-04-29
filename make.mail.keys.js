@@ -45,7 +45,7 @@ var questions = [
 
 function readWriteAsync(emailAdd,encryptionPass,emailPass)
 {
-    fs.readFile('./mail.keys.template.js', 'utf-8', function(err, data)
+    fs.readFile('./template.mail.keys.js', 'utf-8', function(err, data)
                 {
                     if (err) throw err;
 
