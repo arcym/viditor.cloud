@@ -33,7 +33,7 @@ var questions = [
     },
     {
         type: "password",
-        message: "Enter an encryption password: ",
+        message: "Please enter an encryption password: ",
         name: "encryptionPassword"
     },
     {
